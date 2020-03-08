@@ -8,9 +8,9 @@ module.exports = function toReadable (number) {
   if (number <= 20) return Words.get(number);
   else if (number < 60) return (Words.get(+((number + "")[0] + "0")) + " " + Words.get(+((number + "")[1]))).trim();
   else if (number >= 80 && number < 90) return ("eighty" + " " + Words.get(+((number + "")[1]))).trim();
-  else if (number < 100) return (InWords.get(+((number + "")[0])) + "ty " + InWords.get(+((number + "")[1]))).trim();
+  else if (number < 100) return (Words.get(+((number + "")[0])) + "ty " + Words.get(+((number + "")[1]))).trim();
   else {
       let result = toReadable(+((number + "")[1] + 0) + +((number + "")[2]));
-      return (InWords.get(+((number + "")[0])) + " hundred " + (result == "zero" ? "" : result)).trim();
+      return (Words.get(+((number + "")[0])) + " hundred " + (result == "zero" ? "" : result)).trim();
   }
 }
